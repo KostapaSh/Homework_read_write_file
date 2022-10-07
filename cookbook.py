@@ -3,7 +3,7 @@ import os
 def get_cook_book():
     dishes = []
     cook_book = {}
-    with open('recipes.txt', 'r') as meal_list:
+    with open('recipes.txt', 'r', encoding='utf8') as meal_list:
         for list in meal_list:
             getlist = list.strip()
             dishes.append(getlist)
@@ -47,7 +47,7 @@ def merge_files():
     str_to_file = ''
     files = ['1.txt', '2.txt', '3.txt']
     for file in files:
-        with open(file, 'r') as r_file:
+        with open(file, 'r', encoding='utf8') as r_file:
             file_read = r_file.read()
             row_count = file_read.count('\n') + 1
         fil_dict[r_file.name]= row_count, file_read
@@ -61,7 +61,7 @@ def merge_files():
             str_to_file += str(fil_dict_3) + '\n'
         str_to_file += '\n'
 
-    with open('result.txt', 'w') as w_file:
+    with open('result.txt', 'w', encoding='utf8') as w_file:
         w_file.writelines(str_to_file)
 
 
